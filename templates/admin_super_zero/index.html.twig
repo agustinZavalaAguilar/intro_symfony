@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}SuperZero index{% endblock %}
+
+{% block body %}
+    <h1>SuperZero index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>SuperZeroName</th>
+                <th>RealName</th>
+                <th>SuperSkillName</th>
+                <th>SuperSkillDescription</th>
+                <th>Weakness</th>
+                <th>Power</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for super_zero in super_zeros %}
+            <tr>
+                <td>{{ super_zero.id }}</td>
+                <td>{{ super_zero.superZeroName }}</td>
+                <td>{{ super_zero.realName }}</td>
+                <td>{{ super_zero.superSkillName }}</td>
+                <td>{{ super_zero.superSkillDescription }}</td>
+                <td>{{ super_zero.weakness }}</td>
+                <td>{{ super_zero.power }}</td>
+                <td>
+                    <a href="{{ path('app_admin_super_zero_show', {'id': super_zero.id}) }}">show</a>
+                    <a href="{{ path('app_admin_super_zero_edit', {'id': super_zero.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_admin_super_zero_new') }}">Create new</a>
+{% endblock %}

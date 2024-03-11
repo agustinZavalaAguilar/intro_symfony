@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MissionController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <h1>Bienvenu au détail top secret des missions!</h1>
+
+    {{dump(missions)}}
+
+     {% for mission in missions %}
+
+        <article>
+            <h2>{{mission.title}}</h2>
+            <h3>{{mission.description}}</h3>
+            <ul>
+                <li>Difficulté de la mission : {{ mission.difficulty}}</li>
+                <li>Status de la mission : {{ mission.status}}</li>
+               
+                    {% for superZero in mission.superZeros %}
+                         <li>En mission : {{superZero.superZeroName}} </li> 
+                         {% else %}                        
+                         <li>Mission: Il n'ya pas de données dans cette rubriques</li>
+                    {% endfor %}
+
+            </ul>
+                 
+
+           
+        </article>
+
+    
+    {% endfor %}
+
+</div>
+{% endblock %}

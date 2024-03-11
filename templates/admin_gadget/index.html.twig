@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gadget index{% endblock %}
+
+{% block body %}
+    <h1>Gadget index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Intensity</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for gadget in gadgets %}
+            <tr>
+                <td>{{ gadget.id }}</td>
+                <td>{{ gadget.name }}</td>
+                <td>{{ gadget.description }}</td>
+                <td>{{ gadget.intensity }}</td>
+                <td>
+                    <a href="{{ path('app_admin_gadget_show', {'id': gadget.id}) }}">show</a>
+                    <a href="{{ path('app_admin_gadget_edit', {'id': gadget.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_admin_gadget_new') }}">Create new</a>
+{% endblock %}

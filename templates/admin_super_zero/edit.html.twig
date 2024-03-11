@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit SuperZero{% endblock %}
+
+{% block body %}
+    <h1>Edit SuperZero</h1>
+
+    {{ include('admin_super_zero/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_admin_super_zero_index') }}">back to list</a>
+
+    {{ include('admin_super_zero/_delete_form.html.twig') }}
+{% endblock %}

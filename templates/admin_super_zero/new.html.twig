@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New SuperZero{% endblock %}
+
+{% block body %}
+    <h1>Create new SuperZero</h1>
+
+    {{ include('admin_super_zero/_form.html.twig') }}
+
+    <a href="{{ path('app_admin_super_zero_index') }}">back to list</a>
+{% endblock %}
