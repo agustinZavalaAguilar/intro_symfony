@@ -22,7 +22,7 @@ class GadgetController extends AbstractController
     public function detail(Gadget $gadget): Response
     {
         return $this->render('gadget/detail.html.twig', [
-            'gadgets' => $gadget,
+            'gadget' => $gadget,
         ]);
     }
 }

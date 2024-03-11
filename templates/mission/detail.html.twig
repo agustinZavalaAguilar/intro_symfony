@@ -12,5 +12,21 @@
     <h1>Voici la mission si vous l'acceptez</h1>
 
     {{dump(mission)}}
+
+    <article>
+        <h2>Mission : {{mission.title}}</h2>
+        <h3>{{mission.description}}</h3>
+            <ul>
+                <li>Difficulté de la mission : {{ mission.difficulty}}</li>
+                <li>Status de la mission : {{ mission.status}}</li>
+               
+                    {% for superZero in mission.superZeros %}
+                         <li>En mission : {{superZero.superZeroName}} </li> 
+                         {% else %}                        
+                         <li>Mission: Il n'ya pas de données dans cette rubriques</li>
+                    {% endfor %}
+            </ul>                 
+    </article>
+
 </div>
 {% endblock %}

@@ -11,5 +11,20 @@
 <div class="example-wrapper">
     <h1>Spécifications du gadget: </h1>
     {{dump(gadget)}}
+
+    <article>
+        <h2>{{ gadget.name}}</h2>
+        
+        <ul>
+            <li>Description : {{gadget.description}}</li>
+            <li>Intensité : {{gadget.intensity}}</li>
+            
+                {% for superZero in gadget.superZeros %}
+                    <!-- finir cette ligne --> 
+                    {% else %}
+                    <li>il n'y a pas encore des super zeros utilisant ce gadget. </li                    
+                {% endfor %} 
+        </ul>    
+    </article>
 </div>
 {% endblock %}

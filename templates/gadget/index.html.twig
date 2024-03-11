@@ -17,6 +17,9 @@
 
     <article>
     <h2>{{ gadget.name}}</h2>
+    <a href="{{ path('app_gadget_detail', {'id': gadget.id }) }}">
+                <p> Voir description du gadget</p>
+            </a>
     <ul>
         <li>{{gadget.description}}</li>
         <li>{{gadget.intensity}}</li>
@@ -27,7 +30,6 @@
                 <p>il n'y a pas des super zeros dans cette ligne. </p>                    
             {% endfor %} 
     </ul>
-
     
     </article>
 

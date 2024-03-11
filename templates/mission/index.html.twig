@@ -16,22 +16,10 @@
      {% for mission in missions %}
 
         <article>
-            <h2>{{mission.title}}</h2>
-            <h3>{{mission.description}}</h3>
-            <ul>
-                <li>Difficulté de la mission : {{ mission.difficulty}}</li>
-                <li>Status de la mission : {{ mission.status}}</li>
-               
-                    {% for superZero in mission.superZeros %}
-                         <li>En mission : {{superZero.superZeroName}} </li> 
-                         {% else %}                        
-                         <li>Mission: Il n'ya pas de données dans cette rubriques</li>
-                    {% endfor %}
-
-            </ul>
-                 
-
-           
+            <h2>Mission : {{mission.title}}</h2>
+            <a href="{{ path('app_mission_detail', {'id': mission.id }) }}">
+                <p> Voir description de la mission</p>
+            </a> 
         </article>
 
     

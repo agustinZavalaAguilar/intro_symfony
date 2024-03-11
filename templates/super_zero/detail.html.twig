@@ -12,6 +12,42 @@
     <h1>Mon super zéro: </h1>
 
     {{dump(superZero)}}
+
+    <article>
+            <h2>{{superZero.superZeroName }}</h2>
+            
+            <h3>Alter ego : {{superZero.realName}}</h3>
+            <ul>
+                <li>Super skill : {{superZero.superSkillName}}</li>
+                <li>Description : {{superZero.superSkillDescription}}</li>
+                <li>Faiblesse : {{superZero.weakness}}</li>
+                <li>Pouvoir niveau : {{superZero.power}}</li>
+
+                {% if superZero.gadget %}
+                    <li>Gadget : {{superZero.gadget.name}} </li>
+                    <li>Description du gadget : {{superZero.gadget.description}}</li>
+                    {% else %}
+                    <li>Ce super zéro n'a pase de gadget</li>
+                {% endif %}
+
+                
+                    {% for mission in superZero.missions %}
+                         <li>Mission : {{mission.title}} </li>
+                         <li>Description de la mission : {{mission.description}} </li>
+                    {% else %}
+                        <li> Ce superzéro n'a pas de mission
+                    {% endfor %}
+
+               
+                    {% for team in superZero.teams %}
+                         <li>Équipe : {{team.title}} </li>
+                         <li>Description de l'équipe : {{team.description}} </li>
+                         {% else %}
+                         <li>ce Super zéro n'a pas d'équipe</li>
+                    {% endfor %}              
+
+            </ul>
+        </article>
    
 </div>
 {% endblock %}

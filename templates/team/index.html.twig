@@ -16,18 +16,9 @@
 
         <article>
             <h2>{{team.title}}</h2>
-            <ul>
-                <li>{{team.description}}</li>
-            </ul>
-            
-                <h3>Super zeros adhérents : </h3>
-                <ul>
-                {% for superZero in team.superZeros %}
-                    <li>{{superZero.superZeroName}}</li>
-                    {% else %}
-                    <li>Il n'y a pas de super zeros adhérents</li>
-                {% endfor %}
-                </ul>
+            <a href="{{ path('app_team_detail', {'id': team.id }) }}">
+                <p> Voir description da la team</p>
+            </a>
         </article>
         
     {% endfor %}

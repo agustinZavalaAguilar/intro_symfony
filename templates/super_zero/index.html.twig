@@ -9,15 +9,18 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Bienvenu sur la liste des nos super zeros : </h1>
+    <h2>Bienvenue sur la liste des nos super zeros : </h2>
 
     {{dump(superZeros)}}
 
     {% for superZero in superZeros %}
 
         <article>
-            <h2>{{superZero.superZeroName}}</h2>
-            <h3>Alter ego : {{superZero.realName}}</h3>
+            <h3>{{superZero.superZeroName }}</h3>
+            <a href="{{ path('app_super_zero_detail', {'id': superZero.id }) }}">
+                <p> Voir profil détaillé</p>
+            </a>
+            <h4>Alter ego : {{superZero.realName}}</h4>
             <ul>
                 <li>Super skill : {{superZero.superSkillName}}</li>
                 <li>Description : {{superZero.superSkillDescription}}</li>
@@ -44,14 +47,11 @@
                          <li>Équipe : {{team.title}} </li>
                          <li>Description de l'équipe : {{team.description}} </li>
                          {% else %}
-                         <li>ce Super zéro n'a pas d'équiper</li>
-                    {% endfor %}              
+                         <li>ce Super zéro n'a pas d'équipe</li>
+                    {% endfor %}        
 
             </ul>
-        </article>
-
-    
+        </article>    
     {% endfor %}
-
 </div>
 {% endblock %}
