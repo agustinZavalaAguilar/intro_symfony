@@ -1,8 +1,9 @@
-<nav>
-   
+
+    {% if is_granted("ROLE_ADMIN") %}
+    <nav>
        <a href= "{{ path('app_admin_super_zero_index') }}" >Gestion des Super Zero</a>
        <a href= "{{ path('app_admin_mission_index') }}" >Gestion des missions</a>
        <a href= "{{ path('app_admin_team_index') }}" >Gestion des teams</a>
        <a href= "{{ path('app_admin_gadget_index') }}" >Gestion des gadgets</a>
-   
-</nav>
+    </nav>
+   {% endif %}

@@ -1,10 +1,19 @@
 <header>
-
-    <img src="{{asset('img/super_zero.png')}}">
-
-    <h1> Academie des Super Zéros</h1>        
+    <div class="main_banner">
+        <h1> Academie des Super Zéros</h1>
+    </div>        
     
         {% include '_parts/nav.html.twig'%}
         {% include '_parts/navAdmin.html.twig'%}
+
+    <div class="connection_options">
+        {% if not is_granted('IS_AUTHENTICATED_FULLY') %}
+            <a href="{{ path('app_login') }}">Connexion</a>
+            <a href="{{ path('app_register') }}">Créer un compte</a>
+        {% else %}
+            <p>Bienvenue : {{ app.user.username }} !</p>
+            <a href="{{ path('app_logout') }}">Déconnexion</a>
+        {% endif %}
+    </div>
 
 </header>
